@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import { errorMiddleware } from './middlewares/Error';
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ class App {
     // this.app.use('/', loginRouter);
     // this.app.use('/category', categoryRouter);
     // this.app.use('/product', productRouter);
-    // this.app.use(errorMiddleware);
+    this.app.use(errorMiddleware);
   }
 
   public start(): void {
