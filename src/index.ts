@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { errorMiddleware } from './middlewares/Error';
+import { userRouter } from './routes/User';
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ class App {
   private config(): void {
     // connectToDatabase();
     this.app.use(express.json());
-    // this.app.use('/', userRouter);
+    this.app.use('/user', userRouter);
     // this.app.use('/', loginRouter);
     // this.app.use('/category', categoryRouter);
     // this.app.use('/product', productRouter);

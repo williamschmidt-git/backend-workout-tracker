@@ -6,12 +6,26 @@ export class UserRepository implements IUserRepository {
   async create(user: UserDTO): Promise<Object> {
     const newUser = await prisma.user.create({
       data: { ...user },
+      select: {
+        id: true,
+        workout_sessions: true,
+        token: true,
+      },
     });
 
     return newUser;
   }
 
-  patch(id: string, token: string): Promise<Object> {
-    throw new Error('Method not implemented.');
+  async patch(id: number, token: string): Promise<Object> {
+    const findUser = await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        token,
+      },
+    });
+
+    return findUser;
   }
 }
