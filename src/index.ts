@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import { errorMiddleware } from './middlewares/Error';
 import { userRouter } from './routes/User';
 
@@ -16,6 +17,7 @@ class App {
   private config(): void {
     // connectToDatabase();
     this.app.use(express.json());
+    this.app.use(cors());
     this.app.use('/user', userRouter);
     // this.app.use('/', loginRouter);
     // this.app.use('/category', categoryRouter);
