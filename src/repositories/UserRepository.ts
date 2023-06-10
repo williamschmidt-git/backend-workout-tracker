@@ -3,7 +3,7 @@ import { IUserRepository } from 'src/Interfaces/Repositories/IUserRepository';
 import prisma from '../prisma/prisma';
 
 export class UserRepository implements IUserRepository {
-  async findByEmail(user: UserDTO): Promise<any> {
+  async findByUsername(user: UserDTO): Promise<any> {
     return prisma.user.findUnique({
       where: {
         username: user.username,

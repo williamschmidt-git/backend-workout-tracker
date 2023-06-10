@@ -4,6 +4,7 @@ import cors from 'cors';
 import { errorMiddleware } from './middlewares/Error';
 import { userRouter } from './routes/User';
 import { loginRouter } from './routes/Login';
+import { workoutRouter } from './routes/Workout';
 
 dotenv.config();
 
@@ -21,7 +22,7 @@ class App {
     this.app.use(cors());
     this.app.use('/user', userRouter);
     this.app.use('/login', loginRouter);
-    // this.app.use('/category', categoryRouter);
+    this.app.use('/workout', workoutRouter);
     // this.app.use('/product', productRouter);
     this.app.use(errorMiddleware);
   }

@@ -12,7 +12,7 @@ export default class LoginService {
   }
 
   async login(user: UserDTO) {
-    const checkUser: any = await this.userRepository.findByEmail(user);
+    const checkUser: any = await this.userRepository.findByUsername(user);
 
     if (!checkUser) {
       return {
