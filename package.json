@@ -9,7 +9,8 @@
     "prestart": "npm run build",
     "start": "nodemon ./dist/server.js",
     "prod": "npm run build && npm run start",
-    "lint": "eslint src/*.ts"
+    "lint": "eslint src/*.ts",
+    "seed": "ts-node ./src/prisma/prisma.ts"
   },
   "repository": {
     "type": "git",

@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { errorMiddleware } from './middlewares/Error';
 import { userRouter } from './routes/User';
+import { loginRouter } from './routes/Login';
 
 dotenv.config();
 
@@ -19,7 +20,7 @@ class App {
     this.app.use(express.json());
     this.app.use(cors());
     this.app.use('/user', userRouter);
-    // this.app.use('/', loginRouter);
+    this.app.use('/login', loginRouter);
     // this.app.use('/category', categoryRouter);
     // this.app.use('/product', productRouter);
     this.app.use(errorMiddleware);
