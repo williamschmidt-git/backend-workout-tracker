@@ -17,13 +17,11 @@ class App {
   }
 
   private config(): void {
-    // connectToDatabase();
     this.app.use(express.json());
     this.app.use(cors());
     this.app.use('/user', userRouter);
     this.app.use('/login', loginRouter);
     this.app.use('/workout', workoutRouter);
-    // this.app.use('/product', productRouter);
     this.app.use(errorMiddleware);
   }
 
