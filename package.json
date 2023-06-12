@@ -11,7 +11,8 @@
     "start": "npm run generate && node ./dist/server.js",
     "prod": "npm run build && npm run start",
     "lint": "eslint src/*.ts",
-    "seed": "ts-node ./src/prisma/prisma.ts"
+    "seed": "ts-node ./src/prisma/prisma.ts",
+    "deploy": "docker-compose pull && docker-compose up --force-recreate --build"
   },
   "repository": {
     "type": "git",

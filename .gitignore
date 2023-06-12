@@ -3,4 +3,3 @@ dist/
 .eslintignore
 .eslintrc.js
 .jest.config.ts
-.env
