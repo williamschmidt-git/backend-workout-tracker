@@ -27,7 +27,7 @@ class App {
 
   public start(): void {
     this.app.listen(process.env.PORT, () => {
-      console.warn(`Listening on port ${process.env.PORT}`);
+      console.warn(`Listening on ${process.env.PORT}`);
     });
   }
 }

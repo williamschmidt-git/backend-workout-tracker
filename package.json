@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "generate": "npx prisma generate --schema=./src/prisma/schema.prisma",
-    "build": "rm -rf dist/ && tsc && npm run generate",
-    "dev": "ts-node ./src/server.ts",
+    "generate": "npx prisma generate --schema=src/prisma/schema.prisma && npx prisma migrate deploy --schema=src/prisma/schema.prisma && npx prisma db push --schema=src/prisma/schema.prisma",
+    "build": "tsc",
+    "dev": "npx prisma generate && ts-node ./src/server.ts",
     "prestart": "npm run build",
-    "start": "npx prisma db push --schema=./src/prisma/schema.prisma && node ./dist/server.js",
+    "start": "npm run generate && node ./dist/server.js",
     "prod": "npm run build && npm run start",
     "lint": "eslint src/*.ts",
     "seed": "ts-node ./src/prisma/prisma.ts"

@@ -4,7 +4,7 @@ import prisma from '../prisma/prisma';
 
 export class UserRepository implements IUserRepository {
   async findByUsername(user: UserDTO): Promise<any> {
-    return prisma.user.findUnique({
+    return prisma.user.findFirst({
       where: {
         username: user.username,
       },
